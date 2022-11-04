@@ -1,5 +1,5 @@
 import { Product } from "@prisma/client";
-
+import { useRouter } from "next/router";
 export const Products = ({
   slug,
   id,
@@ -10,12 +10,17 @@ export const Products = ({
   setProduct,
   Product,
 }: Product & any) => {
+  const router = useRouter();
   return (
     <div className="mx-auto flex w-full max-w-lg flex-col items-center justify-center">
       <img
         className="h-72 w-full rounded-md object-cover xl:h-80"
         src={img}
         alt={slug}
+        style={{ cursor: "pointer" }}
+        onClick={() => {
+          router.push(`/products/product?id=${id}`);
+        }}
       />
       <h4 className="mt-2 text-lg font-medium text-gray-700 dark:text-gray-200">
         {slug}

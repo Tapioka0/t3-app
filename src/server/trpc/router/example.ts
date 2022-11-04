@@ -4,16 +4,23 @@ import { z } from "zod";
 import { router, publicProcedure } from "../trpc";
 
 export const exampleRouter = router({
-  hello: publicProcedure
-    .input(z.object({ text: z.string().nullish() }).nullish())
-    .query(({ input }) => {
-      return {
-        greeting: `Hello ${input?.text ?? "world"}`,
-      };
-    }),
   getAll: publicProcedure.query(({ ctx }) => {
     return ctx.prisma.product.findMany();
   }),
+
+  getOne: publicProcedure
+    .input(
+      z
+        .object({
+          id: z.number(),
+        })
+        .nullish()
+    )
+    .query(({ ctx, input }) => {
+      return ctx.prisma.product.findFirst({
+        where: { id: input?.id },
+      });
+    }),
   create: publicProcedure
     .input(
       z
@@ -26,7 +33,7 @@ export const exampleRouter = router({
         })
         .nullish()
     )
-    .query(async ({ ctx, input }) => {
+    .mutation(async ({ ctx, input }) => {
       await ctx.prisma.product.create({
         data: {
           descripcion: input?.descripcion ?? "None",
