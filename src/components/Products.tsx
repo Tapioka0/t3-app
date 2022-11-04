@@ -7,7 +7,9 @@ export const Products = ({
   inventario,
   precio,
   img,
-}: Product) => {
+  setProduct,
+  Product,
+}: Product & any) => {
   return (
     <div className="mx-auto flex w-full max-w-lg flex-col items-center justify-center">
       <img
@@ -20,7 +22,15 @@ export const Products = ({
       </h4>
       <p className="text-blue-500">${precio}</p>
 
-      <button className="mt-4 flex w-full transform items-center justify-center rounded-md bg-gray-800 px-2 py-2 font-medium capitalize tracking-wide text-white transition-colors duration-200 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none">
+      <button
+        className="mt-4 flex w-full transform items-center justify-center rounded-md bg-gray-800 px-2 py-2 font-medium capitalize tracking-wide text-white transition-colors duration-200 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none"
+        onClick={() => {
+          const filter = Product.filter((e: any) => e.id === id);
+          if (filter.length >= 1) return;
+          setProduct([...Product, { name: slug, Precio: precio, id }]);
+          console.log("Agrege:", Product);
+        }}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="mx-1 h-5 w-5"

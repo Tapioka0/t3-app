@@ -4,8 +4,10 @@ import { Header } from "../components/Header";
 import { Cart } from "../components/Cart";
 import { trpc } from "../utils/trpc";
 import { Products } from "../components/Products";
+import { useState } from "react";
 const Home: NextPage = () => {
   const data = trpc.example.getAll.useQuery();
+  const [Product, setProduct] = useState<Array<any>>([]);
 
   return (
     <>
@@ -33,9 +35,7 @@ const Home: NextPage = () => {
                           Product Name
                         </div>
                       </th>
-                      <th className="p-2">
-                        <div className="text-left font-semibold">Quantity</div>
-                      </th>
+
                       <th className="p-2">
                         <div className="text-left font-semibold">Total</div>
                       </th>
@@ -46,16 +46,15 @@ const Home: NextPage = () => {
                   </thead>
 
                   <tbody className="divide-y divide-gray-100 text-sm">
-                    <Cart />
+                    <Cart Product={Product} setProduct={setProduct} />
                   </tbody>
                 </table>
               </div>
 
               <div className="flex justify-end space-x-4 border-t border-gray-100 px-5 py-4 text-2xl font-bold">
-                <div>Total</div>
-                <div className="text-blue-600">
-                  USD <span x-text="total.toFixed(2)"></span>
-                </div>
+                <button className="rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700">
+                  Buy
+                </button>
               </div>
 
               <div className="flex justify-end">
@@ -86,6 +85,9 @@ const Home: NextPage = () => {
                         inventario={inventario}
                         precio={precio}
                         img={img}
+                        setProduct={setProduct}
+                        Product={Product}
+                        key={id}
                       />
                     )
                   )}
