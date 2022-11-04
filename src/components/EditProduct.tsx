@@ -25,8 +25,8 @@ export const EditProduct = ({ id }: any) => {
     });
 
     swal({
-      title: "added!",
-      text: "successfully added",
+      title: "Edited!",
+      text: "successfully Edited",
       icon: "success",
     });
     router.push(`/products/product?id=${id}`);

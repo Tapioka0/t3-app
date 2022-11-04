@@ -76,6 +76,7 @@ export const CreateProduct = () => {
                   onChange={(e) => {
                     setNameProduct(e.target.value);
                   }}
+                  value={nameProduct}
                 />
               </label>
 
@@ -91,6 +92,7 @@ export const CreateProduct = () => {
                   onChange={(e) => {
                     setdescripcionProduct(e.target.value);
                   }}
+                  value={descripcionProduct}
                 />
               </label>
 
@@ -107,6 +109,7 @@ export const CreateProduct = () => {
                   onChange={(e) => {
                     setPriceProduct(parseInt(e.target.value));
                   }}
+                  value={priceProduct.toString()}
                 />
               </label>
 
@@ -123,6 +126,7 @@ export const CreateProduct = () => {
                   onChange={(e) => {
                     setUrlProduct(e.target.value);
                   }}
+                  value={urlProduct}
                 />
               </label>
 
@@ -139,6 +143,7 @@ export const CreateProduct = () => {
                   onChange={(e) => {
                     setInventarioProduct(parseInt(e.target.value));
                   }}
+                  value={inventarioProduct}
                 />
               </label>
 

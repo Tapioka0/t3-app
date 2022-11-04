@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
 import { Header } from "../../components/Header";
 import { trpc } from "../../utils/trpc";
-
+import swal from "sweetalert";
 const ProductPage = () => {
   const router = useRouter();
   const { id }: any = router.query;
-  const mutation = trpc.example.edit.useMutation();
+  const mutation = trpc.example.delete.useMutation();
   //if (!id) return;
 
   const product = trpc.example.getOne.useQuery({ id: parseInt(id) });
@@ -55,7 +55,19 @@ const ProductPage = () => {
                 </div>
               </div>
               <div className="flex flex-row-reverse ">
-                <button className="rounded-full  px-10 py-2 font-semibold text-yellow-900 opacity-75 hover:text-gray-900 hover:opacity-100">
+                <button
+                  className="rounded-full  px-10 py-2 font-semibold text-yellow-900 opacity-75 hover:text-gray-900 hover:opacity-100"
+                  onClick={() => {
+                    mutation.mutate({ id: parseInt(id) });
+                    console.log("eliminado");
+                    swal({
+                      title: "Deleted!",
+                      text: "successfully Deleted",
+                      icon: "success",
+                    });
+                    router.push("/");
+                  }}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="#ff0505"

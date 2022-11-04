@@ -21,7 +21,7 @@ export const exampleRouter = router({
         where: { id: input?.id },
       });
     }),
-    edit: publicProcedure
+  edit: publicProcedure
     .input(
       z
         .object({
@@ -30,7 +30,6 @@ export const exampleRouter = router({
           inventario: z.number(),
           img: z.string(),
           id: z.number(),
-        
         })
         .nullish()
     )
@@ -41,11 +40,24 @@ export const exampleRouter = router({
           precio: input?.price,
           descripcion: input?.descripcion,
           inventario: input?.inventario,
-          img: input?.img
-        }
-
-
-      })
+          img: input?.img,
+        },
+      });
+    }),
+    delete: publicProcedure
+    .input(
+      z
+        .object({
+       
+          id: z.number(),
+        })
+        .nullish()
+    )
+    .mutation(async ({ ctx, input }) => {
+      return ctx.prisma.product.delete({
+        where: { id: input?.id },
+       
+      });
     }),
   create: publicProcedure
     .input(
