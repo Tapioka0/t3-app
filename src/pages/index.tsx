@@ -1,5 +1,5 @@
 import { type NextPage } from "next";
-
+import Link from "next/link";
 import { Header } from "../components/Header";
 import { Cart } from "../components/Cart";
 import { trpc } from "../utils/trpc";
@@ -13,7 +13,7 @@ const Home: NextPage = () => {
     <>
       {/* Header */}
       <>
-        <Header />
+        <Header display={true} />
       </>
 
       {/* Cart */}
@@ -21,9 +21,7 @@ const Home: NextPage = () => {
         <section className="bg-white dark:bg-gray-900 ">
           <div className="container mx-auto flex h-full flex-col justify-center px-6 py-8">
             <div className="mx-auto w-full max-w-2xl rounded-sm border border-gray-200 bg-white shadow-lg">
-              <header className="border-b border-gray-100 px-5 py-4">
-                <div className="font-semibold text-gray-800">Manage Carts</div>
-              </header>
+              <header className="border-b border-gray-100 px-5 py-4"></header>
 
               <div className="overflow-x-auto p-3">
                 <table className="w-full table-auto">

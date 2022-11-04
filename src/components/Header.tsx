@@ -1,4 +1,11 @@
-export const Header = () => {
+import { useRouter } from "next/router";
+
+interface props {
+  display: boolean;
+}
+
+export const Header = ({ display }: props) => {
+  const router = useRouter();
   return (
     <header>
       <nav className="border-gray-200 bg-white px-4 py-2.5 dark:bg-gray-800 lg:px-6">
@@ -22,8 +29,11 @@ export const Header = () => {
             <a
               href="#"
               className="mr-2 rounded-lg px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-800 lg:px-5 lg:py-2.5"
+              onClick={() => {
+                display ? router.push("/manage") : router.push("/");
+              }}
             >
-              Manage Products
+              {display ? " Manage Products" : "back"}
             </a>
           </div>
         </div>
