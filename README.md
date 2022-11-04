@@ -1,27 +1,26 @@
-# Create T3 App
+# t3-app
 
-This is an app bootstrapped according to the [init.tips](https://init.tips) stack, also known as the T3-Stack.
+## app using t3-stack
 
-## What's next? How do I make an app with this?
+```
+- React
+- Next
+- TypeScript
+- Tailwind
+- Prisma
+- TRPC
+```
 
-We try to keep this project as simple as possible, so you can start with the most basic configuration and then move on to more advanced configuration.
+### Images
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+![1](https://cdn.discordapp.com/attachments/702212071890223204/1038146378255310979/image.png)
 
-- [Next-Auth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [TailwindCSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+![2](https://cdn.discordapp.com/attachments/702212071890223204/1038146407393140796/image.png)
+![3](https://cdn.discordapp.com/attachments/702212071890223204/1038146432626085921/image.png)
+![4](https://cdn.discordapp.com/attachments/702212071890223204/1038146475085013173/image.png)
+![5](https://cdn.discordapp.com/attachments/702212071890223204/1038146475085013173/image.png)
 
-We also [roll our own docs](https://beta.create.t3.gg) with some summary information and links to the respective documentation.
+![6](https://cdn.discordapp.com/attachments/702212071890223204/1038146567493918731/image.png)
 
-Also checkout these awesome tutorials on `create-t3-app`.
-
-- [Build a Blog With the T3 Stack - tRPC, TypeScript, Next.js, Prisma & Zod](https://www.youtube.com/watch?v=syEWlxVFUrY)
-- [Build a Live Chat Application with the T3 Stack - TypeScript, Tailwind, tRPC](https://www.youtube.com/watch?v=dXRRY37MPuk)
-- [Build a full stack app with create-t3-app](https://www.nexxel.dev/blog/ct3a-guestbook)
-- [A first look at create-t3-app](https://dev.to/ajcwebdev/a-first-look-at-create-t3-app-1i8f)
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://beta.create.t3.gg/en/deployment/vercel) and [Docker](https://beta.create.t3.gg/en/deployment/docker) for more information.
+![7](https://cdn.discordapp.com/attachments/702212071890223204/1038146786122010660/image.png)
+![8](https://cdn.discordapp.com/attachments/702212071890223204/1038146831554707466/image.png)
