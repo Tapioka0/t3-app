@@ -3,7 +3,7 @@ import { type NextPage } from "next";
 import { Header } from "../components/Header";
 import { Cart } from "../components/Cart";
 import { trpc } from "../utils/trpc";
-
+import { Products } from "../components/Products";
 const Home: NextPage = () => {
   const data = trpc.example.getAll.useQuery();
 
@@ -64,6 +64,32 @@ const Home: NextPage = () => {
                   className="border border-black bg-gray-50"
                   x-model="selected"
                 />
+              </div>
+            </div>
+          </div>
+        </section>
+      </>
+
+      {/* Products */}
+      <>
+        <section className="bg-white dark:bg-gray-900">
+          <div className="container mx-auto px-6 py-8">
+            <div className="lg:-mx-2 lg:flex">
+              <div className="mt-6 lg:mt-0 lg:w-4/5 lg:px-2 ">
+                <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                  {data.data?.map(
+                    ({ slug, id, descripcion, inventario, precio, img }) => (
+                      <Products
+                        slug={slug}
+                        id={id}
+                        descripcion={descripcion}
+                        inventario={inventario}
+                        precio={precio}
+                        img={img}
+                      />
+                    )
+                  )}
+                </div>
               </div>
             </div>
           </div>
