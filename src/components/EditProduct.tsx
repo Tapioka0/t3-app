@@ -5,18 +5,15 @@ import { useRouter } from "next/router";
 export const EditProduct = ({ id }: any) => {
   const router = useRouter();
   const product = trpc.example.getOne.useQuery({ id: parseInt(id) });
-  if (!product.data) return <></>;
-  const { descripcion, img, inventario, precio, slug }: any = product?.data;
-  const [priceProduct, setPriceProduct] = useState<number>(precio);
-  const [urlProduct, setUrlProduct] = useState<string>(img);
-  const [descripcionProduct, setdescripcionProduct] =
-    useState<string>(descripcion);
-  const [inventarioProduct, setInventarioProduct] =
-    useState<number>(inventario);
+
+  const [priceProduct, setPriceProduct] = useState<number>(0);
+  const [urlProduct, setUrlProduct] = useState<string>("");
+  const [descripcionProduct, setdescripcionProduct] = useState<string>("");
+  const [inventarioProduct, setInventarioProduct] = useState<number>(0);
   const mutation = trpc.example.edit.useMutation();
 
   const createProduct = () => {
-    const edit = mutation.mutate({
+    mutation.mutate({
       id: parseInt(id),
       descripcion: descripcionProduct,
       img: urlProduct,
@@ -48,7 +45,7 @@ export const EditProduct = ({ id }: any) => {
       });
     createProduct();
   };
-
+  if (!product.data) return <></>;
   return (
     <div
       style={{ backgroundColor: "#f4f4f0" }}

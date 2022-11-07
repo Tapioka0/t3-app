@@ -1,4 +1,3 @@
-import { Product } from "@prisma/client";
 import { Dispatch, SetStateAction } from "react";
 
 interface prop {
@@ -11,7 +10,7 @@ export const Cart = ({ Product, setProduct }: prop) => {
     <>
       {Product ? (
         Product.map(({ name, id, Precio }) => (
-          <tr>
+          <tr key={id}>
             <td className="p-2">
               <input type="checkbox" className="h-5 w-5" value="id-1" />
             </td>
